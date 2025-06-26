@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: translation-backend
-    env: python
-    buildCommand: ./build.sh
-    startCommand: python app.py
-    plan: free
-    autoDeploy: true
