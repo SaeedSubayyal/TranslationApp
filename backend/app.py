@@ -20,7 +20,25 @@ load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
-
+@app.route('/')
+def index():
+    return jsonify({
+        "message": "Welcome to the Healthcare Translation API 🎉",
+        "available_endpoints": [
+            "/translate",
+            "/speech-to-text",
+            "/languages",
+            "/history",
+            "/auth/signup",
+            "/auth/login",
+            "/auth/verify-otp",
+            "/auth/resend-otp",
+            "/auth/logout",
+            "/auth/update",
+            "/test-db",
+            "/test-config"
+        ]
+    })
 # Configure Gemini API
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 if not GOOGLE_API_KEY:
