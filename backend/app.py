@@ -19,7 +19,7 @@ import time
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": os.getenv("VITE_API_BASE_URL", "*")}})
 @app.route('/')
 def index():
     return jsonify({
